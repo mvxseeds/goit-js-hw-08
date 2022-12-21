@@ -49,9 +49,11 @@ function saveInputValues(data) {
 
 function populateFormInputs() {
     const savedInput = retrieveInputValues();
+    let { email, message } = refs;
 
     if (savedInput) {
-        refs.email.value = savedInput.email;
-        refs.message.value = savedInput.message;
+        // assign value of saved input for destructured keys if key in saved input
+        email.value = savedInput.email ? savedInput.email : "";
+        message.value = savedInput.message ? savedInput.message : "";
     }
 }
